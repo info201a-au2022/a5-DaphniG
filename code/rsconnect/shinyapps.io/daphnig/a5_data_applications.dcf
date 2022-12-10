@@ -1,0 +1,13 @@
+name: a5_data_applications
+title: a5_data_applications
+username:
+account: daphnig
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7861440
+bundleId: 6618781
+url: https://daphnig.shinyapps.io/a5_data_applications/
+when: 1670647107.8685
+lastSyncTime: 1670647107.86851
+asMultiple: FALSE
+asStatic: FALSE
