@@ -1,11 +1,4 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+
 
 library(shiny)
 library(tidyverse)
@@ -18,7 +11,6 @@ library(shinythemes)
 co2_data <- read_csv("https://raw.githubusercontent.com/owid/co2-data/master/owid-co2-data.csv")
 
 
-# Define UI for application that draws a histogram
 ui <- navbarPage(theme = shinytheme("darkly"),"A5: Data Applications",
            tabPanel("Introduction", h1("Overview"),
                     p("This application will look into the dataset: 
@@ -49,7 +41,7 @@ ui <- navbarPage(theme = shinytheme("darkly"),"A5: Data Applications",
            tabPanel("Interactive Visulization",
                     titlePanel("CO2 Emissions Contributers"),
                     
-                    # Sidebar with a slider input for selecting countries
+                    # Sidebar with a slider input for selecting year
                     sidebarLayout(
                       sidebarPanel(
                         uiOutput("selectCountry"),
@@ -71,7 +63,6 @@ ui <- navbarPage(theme = shinytheme("darkly"),"A5: Data Applications",
                       ),
                       
                       
-                      # Show a plot of the generated distribution
                       mainPanel(
                         plotlyOutput("countryPlot")
                       )

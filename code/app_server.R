@@ -40,6 +40,8 @@ server <- function(input,output) {
   })
 }
 
+#dplyr functions
+#average oil current year
 avg_value <- function(co2_data) {
   
   avg <- co2_data %>% filter(year == max(year)) %>% summarise(mean = mean(oil_co2,na.rm=TRUE))
@@ -50,8 +52,7 @@ val <- avg_value(co2_data)
 
 
 
-#How much has co2 emissions by coal change over the last 11 years
-
+#change over time
 change <- function(co2_data) {
   big <- co2_data %>% filter(year > 2009)%>% group_by(year) %>% summarise(sum = sum(gas_co2,na.rm=TRUE)) 
   recent <-big %>% filter(year == max(year)) %>% pull(sum)
@@ -64,6 +65,8 @@ change <- function(co2_data) {
 }
 
 val_3 <- change(co2_data)
+
+#highest year
 biggest <- function(co2_data){
   df <- co2_data %>% group_by(year) %>% summarise(sum = sum(coal_co2,na.rm=TRUE)) 
   most <- df %>% filter (sum == max(sum)) %>% pull(year)
